@@ -9,12 +9,10 @@ import org.kie.api.runtime.KieSession;
 
 public class DroolsTest {
 	public static void main(String[] args) {
-		 GregorianCalendar time = new GregorianCalendar();
-		  int hour = time.get(Calendar.HOUR_OF_DAY);
+		GregorianCalendar time = new GregorianCalendar();
+		int hour = time.get(Calendar.HOUR_OF_DAY);
 		DroolsTest droolsTest = new DroolsTest();
-		//droolsTest.execute(1);
 		droolsTest.execute(hour);
-		//droolsTest.execute(17);
 	}
 
 	public void execute(int time) {
@@ -22,7 +20,7 @@ public class DroolsTest {
 		KieContainer kContainer = ks.getKieClasspathContainer();
 		KieSession kSession = kContainer.newKieSession("ksession-rules");
 		Person person = new Person();
-		person.setName("My dear");
+		person.setName("Dear Sunil");
 		person.setTime(time);
 		kSession.insert(person);
 		kSession.fireAllRules();
